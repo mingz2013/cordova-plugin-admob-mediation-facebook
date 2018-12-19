@@ -1,0 +1,74 @@
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-admob-mediation-facebook"
+        version="1.0.0">
+    <name>Admob Mediation Facebook Plugin</name>
+    <description>Cordova Admob Mediation Facebook Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova, admob, mediation, facebook</keywords>
+    <repo>https://github.com/mingz2013/cordova-plugin-admob-mediation-facebook.git</repo>
+    <issue>https://github.com/mingz2013/cordova-plugin-admob-mediation-facebook/issues</issue>
+
+
+    <!--<preference name="APPLOVIN_SDK_KEY" value=""/>-->
+
+    <js-module src="www/AdMobMediationFacebook.js" name="AdMobMediationFacebook">
+        <clobbers target="AdMobMediationFacebook"/>
+    </js-module>
+    <!--<js-module src="www/AdMobInterface.js" name="AdMobInterface">-->
+        <!--<clobbers target="AdMobInterface"/>-->
+    <!--</js-module>-->
+
+    <dependency id="cordova-plugin-admob" url="https://github.com/mingz2013/cordova-plugin-admob"/>
+
+    <!-- android -->
+    <platform name="android">
+        <framework src="src/android/admob-mediation-facebook.gradle" custom="true" type="gradleReference"/>
+
+        <!--<config-file target="res/xml/config.xml" parent="/*">-->
+            <!--<feature name="Device" >-->
+                <!--<param name="android-package" value="org.apache.cordova.device.Device"/>-->
+            <!--</feature>-->
+        <!--</config-file>-->
+
+        <!--<config-file target="AndroidManifest.xml" parent="/manifest/application">-->
+            <!--<meta-data android:name="applovin.sdk.key"-->
+                       <!--android:value="$APPLOVIN_SDK_KEY" />-->
+
+            <!--<activity android:name="com.applovin.adview.AppLovinInterstitialActivity"-->
+                      <!--android:configChanges="orientation|screenSize"/>-->
+
+            <!--<activity android:name="com.applovin.adview.AppLovinConfirmationActivity"-->
+                      <!--android:configChanges="orientation|screenSize"/>-->
+
+        <!--</config-file>-->
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="AdMobMediationFacebook">
+                <param name="android-package" value="me.mingz.cordova.admob.mediation.AdMobMediationFacebookPlugin"/>
+                <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/AdMobMediationFacebookPlugin.java" target-dir="src/me/mingz/cordova/admob/mediation" />
+
+
+    </platform>
+
+    <!-- ios -->
+    <!--<platform name="ios">-->
+        <!--<config-file target="config.xml" parent="/*">-->
+            <!--<feature name="Device">-->
+                <!--<param name="ios-package" value="CDVDevice"/>-->
+            <!--</feature>-->
+        <!--</config-file>-->
+
+        <!--<header-file src="src/ios/CDVDevice.h" />-->
+        <!--<source-file src="src/ios/CDVDevice.m" />-->
+    <!--</platform>-->
+
+
+
+
+
+</plugin>
